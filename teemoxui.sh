@@ -296,6 +296,7 @@ basic_security_setting() {
     case ${answer} in
         [Yy])
             sed -i "s/^PermitRootLogin yes/PermitRootLogin no/" /etc/ssh/sshd_config
+            systemctl restart sshd
             echo "禁止root直接登录SSH已成功生效"
             ;;
         *)
